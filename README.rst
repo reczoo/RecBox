@@ -6,7 +6,7 @@ DeepMatch provides a toolkit and benchmarks for sentence matching, whose inputs 
 
 
 Benchmarks
-==========
+----------
 
 +-------------------------------+-----------------------+-----------------------+-----------------------+
 |      Models                   |        Quora          |         MSR           |         ATEC          |
@@ -17,7 +17,7 @@ Benchmarks
 +-------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+
 | LSTM-angel-distance [#r1]_    |           |           |           |           |           |           |
 +-------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+
-|     LSTM-concat [1]           |           |           |           |           |           |           |
+|     LSTM-concat [#r1]_        |           |           |           |           |           |           |
 +-------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+
 |     DSSM [#r2]_               |           |           |           |           |           |           |
 +-------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+
@@ -39,7 +39,7 @@ Benchmarks
 
 
 Publications
-============
+------------
 
 
 .. [#r1] Nikhil Dandekar. https://engineering.quora.com/Semantic-Question-Matching-with-Deep-Learning
@@ -60,5 +60,4 @@ Publications
 
 .. [#r9] Zhiguo Wang, Wael Hamza, Radu Florian. `Bilateral Multi-Perspective Matching for Natural Language Sentences <https://arxiv.org/pdf/1702.03814.pdf>`_, **IJCAI**, 2017
 
-.. [#r10] Seonhoon Kim, Jin-Hyuk Hong, Inho Kang, Nojun Kwak. `Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information <https://arxiv.org/pdf/1805.11360>`_, CoRR, 2018
-
+.. [#r10] Seonhoon Kim, Jin-Hyuk Hong, Inho Kang, Nojun Kwak. `Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information <https://arxiv.org/pdf/1805.11360>`_, **CoRR**, 2018
