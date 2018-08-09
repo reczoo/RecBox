@@ -3,7 +3,7 @@ DeepMatch
 
 DeepMatch provides a toolkit and benchmarks for sentence matching, whose inputs are two sentences and output the relation of them. Deepmatch implements a number of state-of-the-art approaches for this goal. By applying Deepmatch, users can judge whether two sentences mean the same.
 
-
+See `the web site of my favorite programming language`__.
 
 Benchmarks
 ----------
@@ -61,3 +61,5 @@ Publications
 .. [#r9] Zhiguo Wang, Wael Hamza, Radu Florian. `Bilateral Multi-Perspective Matching for Natural Language Sentences <https://arxiv.org/pdf/1702.03814.pdf>`_, **IJCAI**, 2017
 
 .. [#r10] Seonhoon Kim, Jin-Hyuk Hong, Inho Kang, Nojun Kwak. `Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information <https://arxiv.org/pdf/1805.11360>`_, **CoRR**, 2018
+
+__ http://www.python.org
