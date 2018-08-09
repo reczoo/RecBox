@@ -62,4 +62,4 @@ Publications
 
 .. [#r10] Seonhoon Kim, Jin-Hyuk Hong, Inho Kang, Nojun Kwak. `Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information <https://arxiv.org/pdf/1805.11360>`_, **CoRR**, 2018
 
-__ http://www.python.org
+__ text here
