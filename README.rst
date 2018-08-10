@@ -47,6 +47,7 @@ Publications
 #. Yelong Shen, Xiaodong He, Jianfeng Gao, Li Deng, Grégoire Mesnil. `Learning Semantic Representations using Convolutional Neural Networks for Web Search <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/www2014_cdssm_p07.pdf>`_, **WWW**, 2014
 
 .. _1:
+
 #. Samuel R. Bowman, Gabor Angeli, Christopher Potts, Christopher D. Manning. `A Large Annotated Corpus for Learning Natural Language Inference <https://arxiv.org/pdf/1508.05326>`_, **EMNLP**, 2015
 
 #. Aliaksei Severyn, Alessandro Moschitti. `Learning to Rank Short Text Pairs with Convolutional Deep Neural Networks <http://eecs.csuohio.edu/~sschung/CIS660/RankShortTextCNNACM2015.pdf>`_, **SIGIR**, 2015
