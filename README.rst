@@ -11,7 +11,7 @@ Benchmarks
 +                               +-----------+-----------+-----------+-----------+-----------+-----------+
 |                               |  Accuracy |    F1     |  Accuracy |    F1     |  Accuracy |    F1     |
 +===============================+===========+===========+===========+===========+===========+===========+
-|     Siamese-CNN [1_]          |           |           |           |           |           |           |
+|     Siamese-CNN [100_]        |           |           |           |           |           |           |
 +-------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+
 | LSTM-angel-distance [#r1]_    |           |           |           |           |           |           |
 +-------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+
@@ -39,7 +39,7 @@ Benchmarks
 Publications
 ------------
 
-.. _1:
+.. _100:
 .. [#r1] Nikhil Dandekar. https://engineering.quora.com/Semantic-Question-Matching-with-Deep-Learning
 
 .. [#r2] Po-Sen Huang, Xiaodong He, Jianfeng Gao, Li Deng, Alex Acero, Larry P. Heck. `Learning Deep Structured Semantic Models for Web Search using Clickthrough Data <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/cikm2013_DSSM_fullversion.pdf>`_, **CIKM**, 2013
