@@ -3,8 +3,6 @@ DeepMatch
 
 DeepMatch provides a toolkit and benchmarks for sentence matching, whose inputs are two sentences and output the relation of them. Deepmatch implements a number of state-of-the-art approaches for this goal. By applying Deepmatch, users can judge whether two sentences mean the same.
 
-See `the web site of my favorite programming language`__.
-
 Benchmarks
 ----------
 
@@ -13,9 +11,9 @@ Benchmarks
 +                               +-----------+-----------+-----------+-----------+-----------+-----------+
 |                               |  Accuracy |    F1     |  Accuracy |    F1     |  Accuracy |    F1     |
 +===============================+===========+===========+===========+===========+===========+===========+
-|     Siamese-CNN [#r4]_        |           |           |           |           |           |           |
+|     Siamese-CNN [1]_        |           |           |           |           |           |           |
 +-------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+
-| LSTM-angel-distance [1]       |           |           |           |           |           |           |
+| LSTM-angel-distance [#r1]_    |           |           |           |           |           |           |
 +-------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+
 |     LSTM-concat [#r1]_        |           |           |           |           |           |           |
 +-------------------------------+-----------+-----------+-----------+-----------+-----------+-----------+
@@ -41,7 +39,7 @@ Benchmarks
 Publications
 ------------
 
-
+.. _[1]:
 .. [#r1] Nikhil Dandekar. https://engineering.quora.com/Semantic-Question-Matching-with-Deep-Learning
 
 .. [#r2] Po-Sen Huang, Xiaodong He, Jianfeng Gao, Li Deng, Alex Acero, Larry P. Heck. `Learning Deep Structured Semantic Models for Web Search using Clickthrough Data <https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/cikm2013_DSSM_fullversion.pdf>`_, **CIKM**, 2013
@@ -62,4 +60,3 @@ Publications
 
 .. [#r10] Seonhoon Kim, Jin-Hyuk Hong, Inho Kang, Nojun Kwak. `Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information <https://arxiv.org/pdf/1805.11360>`_, **CoRR**, 2018
 
-__ text here
