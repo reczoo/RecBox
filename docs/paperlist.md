@@ -9,6 +9,18 @@
 
 + [**AAAI'18**] Dinghan Shen, Yizhe Zhang, Ricardo Henao, Qinliang Su, Lawrence Carin. [Deconvolutional Latent-Variable Model for Text Sequence Matching](http://people.ee.duke.edu/~lcarin/textVAE.pdf), *AAAI*, 2018.
 
++ [**AAAI'18**] Yang Liu, Wenge Rong, Zhang Xiong. [Improved Text Matching by Enhancing Mutual Information](https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/download/16214/16077), *AAAI*, 2018.
+
++ [**AAAI'18**] Yu Wu, Wei Wu, Zhoujun Li. [Knowledge Enhanced Hybrid Neural Network for Text Matching](https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewFile/16225/16116), *AAAI*, 2018. [**Microsoft**] 
+
++ [**AAAI'18**] Xiaodong Zhang, Xu Sun, Houfeng Wang. [Duplicate Question Identification by Integrating FrameNet with Neural Networks](http://xusun.org/publication/10_AAAI18.pdf), *AAAI*, 2018.
+
++ [**IJCAI'18**] Chaoqun Duan, Lei Cui, Xinchi Chen, Furu Wei, Conghui Zhu, Tiejun Zhao. [Attention-Fused Deep Matching Network for Natural Language Inference](https://www.microsoft.com/en-us/research/uploads/prod/2018/05/ijcai18.pdf), *IJCAI*, 2018. [**Microsoft**] 
+
++ [**IJCAI'18**] Chuanqi Tan, Furu Wei, Wenhui Wang, Weifeng Lv, Ming Zhou. [Multiway Attention Networks for Modeling Sentence Pairs](https://www.ijcai.org/proceedings/2018/0613.pdf), *IJCAI*, 2018. [**Microsoft**] 
+
++ [**IJCAI'18**] Yi Tay, Anh Tuan Luu, Siu Cheung Hui. [Hermitian Co-Attention Networks for Text Matching in Asymmetrical Domains](https://www.ijcai.org/proceedings/2018/0615.pdf), *IJCAI*, 2018.
+
 + [**KDD'18**] Haolan Chen, Fred X. Han, Di Niu, Dong Liu, Kunfeng Lai, Chenglin Wu, Yu Xu. [MIX: Multi-Channel Information Crossing for Text Matching](https://sites.ualberta.ca/~dniu/Homepage/Publications_files/hchen-kdd18.pdf), *KDD*, 2018. [**Tencent**]
 
 + [**CIKM'18**] Ting Zhang, Bang Liu, Di Niu, Kunfeng Lai, Yu Xu. [Multiresolution Graph Attention Networks for Relevance Matching](https://sites.ualberta.ca/~dniu/Homepage/Publications_files/tZhang-CIKM2018.pdf), *CIKM*, 2018. [**Tencent**]
