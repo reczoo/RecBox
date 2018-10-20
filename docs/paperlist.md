@@ -9,11 +9,13 @@
 
 + [**AAAI'18**] Dinghan Shen, Yizhe Zhang, Ricardo Henao, Qinliang Su, Lawrence Carin. [Deconvolutional Latent-Variable Model for Text Sequence Matching](http://people.ee.duke.edu/~lcarin/textVAE.pdf), *AAAI*, 2018.
 
-+ [**KDD'18**] Haolan Chen, Fred X. Han, Di Niu, Dong Liu, Kunfeng Lai, Chenglin Wu, Yu Xu. [MIX: Multi-Channel Information Crossing for Text Matching](https://sites.ualberta.ca/~dniu/Homepage/Publications_files/hchen-kdd18.pdf). *KDD*, 2018. [**Tencent**]
++ [**KDD'18**] Haolan Chen, Fred X. Han, Di Niu, Dong Liu, Kunfeng Lai, Chenglin Wu, Yu Xu. [MIX: Multi-Channel Information Crossing for Text Matching](https://sites.ualberta.ca/~dniu/Homepage/Publications_files/hchen-kdd18.pdf), *KDD*, 2018. [**Tencent**]
 
 + [**CIKM'18**] Ting Zhang, Bang Liu, Di Niu, Kunfeng Lai, Yu Xu. [Multiresolution Graph Attention Networks for Relevance Matching](https://sites.ualberta.ca/~dniu/Homepage/Publications_files/tZhang-CIKM2018.pdf), *CIKM*, 2018. [**Tencent**]
 
-+ [**EMNLP'18**] Yang Liu, Matt Gardner, and Mirella Lapata. Structured Alignment Networks for Matching Sentences. *EMNLP*, 2018.
++ [**EMNLP'18**] Yang Liu, Matt Gardner, and Mirella Lapata. Structured Alignment Networks for Matching Sentences, *EMNLP*, 2018.
+
++ [**CoRR'18**] Seonhoon Kim, Jin-Hyuk Hong, Inho Kang, Nojun Kwak. [Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information](https://arxiv.org/pdf/1805.11360), *arXiv*, 2018
 
 ### 2017
 + [**IJCAI'17**] Zhiguo Wang, Wael Hamza, Radu Florian. [Bilateral Multi-Perspective Matching for Natural Language Sentences](https://www.ijcai.org/proceedings/2017/0579.pdf), *IJCAI*, 2017. [**IBM**]
@@ -32,11 +34,12 @@
 
 + [**EMNLP'16**] Ankur P. Parikh, Oscar Täckström, Dipanjan Das, Jakob Uszkoreit. [A Decomposable Attention Model for Natural Language Inference](https://aclweb.org/anthology/D16-1244), *EMNLP*, 2016. [**Google**]
 
-+ [CIKM'16] Jiafeng Guo, Yixing Fan, Qingyao Ai, W. Bruce Crof. [A Deep Relevance Matching Model for Ad-hoc Retrieval](http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf), *CIKM*, 2016.
++ [**CIKM'16**] Jiafeng Guo, Yixing Fan, Qingyao Ai, W. Bruce Crof. [A Deep Relevance Matching Model for Ad-hoc Retrieval](http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf), *CIKM*, 2016.
 
++ [**TACL'16**] Wenpeng Yin, Hinrich Schütze, Bing Xiang, Bowen Zhou. [ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs](https://arxiv.org/pdf/1512.05193.pdf), *TACL*, 2016.
 
 ### 2015
-
+[**SIGIR'15**] Aliaksei Severyn, Alessandro Moschitti. [Learning to Rank Short Text Pairs with Convolutional Deep Neural Networks](http://eecs.csuohio.edu/~sschung/CIS660/RankShortTextCNNACM2015.pdf), *SIGIR*, 2015
 
 ### 2014
 
