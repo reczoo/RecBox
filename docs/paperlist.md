@@ -36,10 +36,10 @@
 
 + [**CIKM'16**] Jiafeng Guo, Yixing Fan, Qingyao Ai, W. Bruce Crof. [A Deep Relevance Matching Model for Ad-hoc Retrieval](http://www.bigdatalab.ac.cn/~gjf/papers/2016/CIKM2016a_guo.pdf), *CIKM*, 2016.
 
-+ [**TACL'16**] Wenpeng Yin, Hinrich Schütze, Bing Xiang, Bowen Zhou. [ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs](https://arxiv.org/pdf/1512.05193.pdf), *TACL*, 2016.
++ [**TACL'16**] Wenpeng Yin, Hinrich Schütze, Bing Xiang, Bowen Zhou. [ABCNN: Attention-Based Convolutional Neural Network for Modeling Sentence Pairs](https://arxiv.org/pdf/1512.05193.pdf), *TACL*, 2016. [**IBM**]
 
 ### 2015
-[**SIGIR'15**] Aliaksei Severyn, Alessandro Moschitti. [Learning to Rank Short Text Pairs with Convolutional Deep Neural Networks](http://eecs.csuohio.edu/~sschung/CIS660/RankShortTextCNNACM2015.pdf), *SIGIR*, 2015
+[**SIGIR'15**] Aliaksei Severyn, Alessandro Moschitti. [Learning to Rank Short Text Pairs with Convolutional Deep Neural Networks](http://eecs.csuohio.edu/~sschung/CIS660/RankShortTextCNNACM2015.pdf), *SIGIR*, 2015. [**Google**]
 
 ### 2014
 
