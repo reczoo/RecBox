@@ -32,6 +32,9 @@
 ### 2017
 + [**IJCAI'17**] Zhiguo Wang, Wael Hamza, Radu Florian. [Bilateral Multi-Perspective Matching for Natural Language Sentences](https://www.ijcai.org/proceedings/2017/0579.pdf), *IJCAI*, 2017. [**IBM**]
 
++ [**WWW'17**] Bhaskar Mitra, Fernando Diaz, Nick Craswell. [Learning to Match using Local and Distributed Representations of Text for Web Search](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/10/wwwfp0192-mitra.pdf), *WWW*, 2017. [**Microsoft**] 
+
+
 + [**CIKM'17**] Liang Pang, Yanyan Lan, Jiafeng Guo, Jun Xu, Jingfang Xu, Xueqi Cheng. [DeepRank: A New Deep Architecture for Relevance Ranking in Information Retrieval](https://arxiv.org/pdf/1710.05649.pdf), *CIKM*, 2017. [**Sogou**]
 
 
