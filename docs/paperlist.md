@@ -7,6 +7,8 @@
 
 + [**WWW'18**] Bang Liu, Ting Zhang, Fred X. Han, Di Niu, Kunfeng Lai, Yu Xu. [Matching Natural Language Sentences with Hierarchical Sentence Factorization](https://arxiv.org/pdf/1803.00179.pdf), *WWW*, 2018. [**Tencent**]
 
++ [**ICLR'18**] Yichen Gong, Heng Luo, Jian Zhang. [Natural Language Inference over Interaction Space](https://arxiv.org/pdf/1709.04348.pdf), *ICLR*, 2018. [**Horizon Robotics**]
+
 + [**AAAI'18**] Dinghan Shen, Yizhe Zhang, Ricardo Henao, Qinliang Su, Lawrence Carin. [Deconvolutional Latent-Variable Model for Text Sequence Matching](http://people.ee.duke.edu/~lcarin/textVAE.pdf), *AAAI*, 2018.
 
 + [**AAAI'18**] Yang Liu, Wenge Rong, Zhang Xiong. [Improved Text Matching by Enhancing Mutual Information](https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/download/16214/16077), *AAAI*, 2018.
@@ -34,8 +36,10 @@
 
 + [**WWW'17**] Bhaskar Mitra, Fernando Diaz, Nick Craswell. [Learning to Match using Local and Distributed Representations of Text for Web Search](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/10/wwwfp0192-mitra.pdf), *WWW*, 2017. [**Microsoft**] 
 
-
 + [**CIKM'17**] Liang Pang, Yanyan Lan, Jiafeng Guo, Jun Xu, Jingfang Xu, Xueqi Cheng. [DeepRank: A New Deep Architecture for Relevance Ranking in Information Retrieval](https://arxiv.org/pdf/1710.05649.pdf), *CIKM*, 2017. [**Sogou**]
+
++ [**SWCN@EMNLP'17**] Gaurav Singh Tomar, Thyago Duque, Oscar Täckström, Jakob Uszkoreit, Dipanjan Das. [Neural Paraphrase Identification of Questions with Noisy Pretraining](http://aclweb.org/anthology/W17-4121), *The First Workshop on Subword and Character Level Models in NLP*, 2017. [**Google**]
+
 
 
 ### 2016
