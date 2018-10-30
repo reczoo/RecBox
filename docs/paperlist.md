@@ -27,7 +27,9 @@
 
 + [**CIKM'18**] Ting Zhang, Bang Liu, Di Niu, Kunfeng Lai, Yu Xu. [Multiresolution Graph Attention Networks for Relevance Matching](https://sites.ualberta.ca/~dniu/Homepage/Publications_files/tZhang-CIKM2018.pdf), *CIKM*, 2018. [**Tencent**]
 
-+ [**EMNLP'18**] Yang Liu, Matt Gardner, and Mirella Lapata. Structured Alignment Networks for Matching Sentences, *EMNLP*, 2018.
++ [**EMNLP'18**] Yang Liu, Matt Gardner, and Mirella Lapata. [Structured Alignment Networks for Matching Sentences](http://www.aclweb.org/anthology/D18-1184), *EMNLP*, 2018.
+
++ [**EMNLP'18**] Jingjing Gong, Xipeng Qiu, Xinchi Chen, Dong Liang, Xuanjing Huang. [Convolutional Interaction Network for Natural Language Inference](http://www.aclweb.org/anthology/D18-1186), *EMNLP*, 2018.
 
 + [**CoRR'18**] Seonhoon Kim, Jin-Hyuk Hong, Inho Kang, Nojun Kwak. [Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information](https://arxiv.org/pdf/1805.11360), *arXiv*, 2018
 
