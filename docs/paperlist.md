@@ -38,10 +38,13 @@
 
 + [**WWW'17**] Bhaskar Mitra, Fernando Diaz, Nick Craswell. [Learning to Match using Local and Distributed Representations of Text for Web Search](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/10/wwwfp0192-mitra.pdf), *WWW*, 2017. [**Microsoft**] 
 
++ [**ICLR**] Zhouhan Lin, Minwei Feng, Cicero Nogueira dos Santos, Mo Yu, Bing Xiang, Bowen Zhou, Yoshua Bengio. [A Structured Self-attentive Sentence Embedding](https://arxiv.org/pdf/1703.03130.pdf), *ICLR*, 2017. [**IBM**]
+
 + [**CIKM'17**] Liang Pang, Yanyan Lan, Jiafeng Guo, Jun Xu, Jingfang Xu, Xueqi Cheng. [DeepRank: A New Deep Architecture for Relevance Ranking in Information Retrieval](https://arxiv.org/pdf/1710.05649.pdf), *CIKM*, 2017. [**Sogou**]
 
-+ [**SWCN@EMNLP'17**] Gaurav Singh Tomar, Thyago Duque, Oscar Täckström, Jakob Uszkoreit, Dipanjan Das. [Neural Paraphrase Identification of Questions with Noisy Pretraining](http://aclweb.org/anthology/W17-4121), *The First Workshop on Subword and Character Level Models in NLP*, 2017. [**Google**]
++ [**EMNLP'17**] Alexis Conneau, Douwe Kiela, Holger Schwenk, Loic Barrault, Antoine Bordes. [Supervised Learning of Universal Sentence Representations from Natural Language Inference Data](http://aclweb.org/anthology/D17-1070), *EMNLP*, 2017. [**Facebook**]
 
++ [**SWCN@EMNLP'17**] Gaurav Singh Tomar, Thyago Duque, Oscar Täckström, Jakob Uszkoreit, Dipanjan Das. [Neural Paraphrase Identification of Questions with Noisy Pretraining](http://aclweb.org/anthology/W17-4121), *The First Workshop on Subword and Character Level Models in NLP*, 2017. [**Google**]
 
 
 ### 2016
