@@ -1,5 +1,16 @@
 ## Paper List
 
+### 2019
++ [**AAAI'19**] Maosheng Guo, Yu Zhang, Ting Liu. Gaussian Transformer: a Lightweight Approach for Natural Language Inference, *AAAI*, 2019.
+
++ [**AAAI'19**] Xiaoyan Wang, Pavan Kapanipathi, Ryan Musa, Mo Yu, Kartik Talamadupula, Ibrahim Abdelaziz, Maria Chang, Achille Fokoue, Bassem Makni, Nicholas Mattei, Michael J Witbrock. Improving Natural Language Inference Using External Knowledge in the Science
+Questions Domain, *AAAI*, 2019. [**IBM**]
+
++ [**AAAI'19**] Kun Zhang, Guangyi Lv, Linyuan Wang, Le Wu, Enhong Chen, Fangzhao Wu, Xing Xie. DRr-Net: Dynamic Re-read Network for Sentence Semantic Matching, *AAAI*, 2019. [**Microsoft**]
+
++ [**AAAI'19**] Seonhoon Kim, Inho Kang, Nojun Kwak. [Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information](https://arxiv.org/pdf/1805.11360), *AAAI*, 2019. [**Naver**]
+
+
 ### 2018
 + [**SIGIR'18**] Nam Khanh Tran, Claudia Niederée. [Multihop Attention Networks for Question Answer Matching](https://dl.acm.org/citation.cfm?id=3210009), *SIGIR*, 2018.
 
@@ -31,7 +42,6 @@
 
 + [**EMNLP'18**] Jingjing Gong, Xipeng Qiu, Xinchi Chen, Dong Liang, Xuanjing Huang. [Convolutional Interaction Network for Natural Language Inference](http://www.aclweb.org/anthology/D18-1186), *EMNLP*, 2018.
 
-+ [**CoRR'18**] Seonhoon Kim, Jin-Hyuk Hong, Inho Kang, Nojun Kwak. [Semantic Sentence Matching with Densely-connected Recurrent and Co-attentive Information](https://arxiv.org/pdf/1805.11360), *arXiv*, 2018
 
 ### 2017
 + [**IJCAI'17**] Zhiguo Wang, Wael Hamza, Radu Florian. [Bilateral Multi-Perspective Matching for Natural Language Sentences](https://www.ijcai.org/proceedings/2017/0579.pdf), *IJCAI*, 2017. [**IBM**]
