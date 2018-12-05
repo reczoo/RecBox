@@ -1,4 +1,4 @@
-## Paper List
+## Papers
 
 ### 2019
 + [**AAAI'19**] Maosheng Guo, Yu Zhang, Ting Liu. Gaussian Transformer: a Lightweight Approach for Natural Language Inference, *AAAI*, 2019.
