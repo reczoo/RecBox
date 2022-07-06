@@ -1,5 +1,5 @@
-# OpenMatch
-OpenMatch provides an open source library for candidate item matching with stunning features in configurability, tunability, and reproducibility. 
+# TwinX
+TwinX is an open source library for two-tower matching with stunning features in configurability, tunability, and reproducibility. 
 
 ## Model List
 
