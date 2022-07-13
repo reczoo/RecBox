@@ -1,5 +1,5 @@
-# TwinX
-TwinX is an open source library for two-tower matching with stunning features in configurability, tunability, and reproducibility. 
+# TwinModels
+TwinModels is an open source library of two-tower matching models, built with stunning features in configurability, tunability, and reproducibility. 
 
 ## Model List
 
@@ -7,7 +7,7 @@ TwinX is an open source library for two-tower matching with stunning features in
 | :----:|:----------:|:--------------------------------------------------------------------------------------------|
 | UAI'09 |   MF-BPR   |      [BPR: Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf)                         |
 | RecSys'16 | YoutubeDNN |    [Deep Neural Networks for YouTube Recommendations](https://dl.acm.org/doi/10.1145/2959100.2959190)                               |
-| CIKM'21 |    MF-CCL / SimpleX    |    SimpleX: A Simple and Strong Baseline for Collaborative Filtering  |
+| CIKM'21 |    MF-CCL/SimpleX    |    SimpleX: A Simple and Strong Baseline for Collaborative Filtering  |
 
 
 ## Get Started
