@@ -1,14 +1,15 @@
-# TwinModels
-TwinModels is an open source library of two-tower matching models, built with stunning features in configurability, tunability, and reproducibility. 
+# MatchBox
 
-## Model List
+Candidate item matching (also known as candidate retrieval) is a foundamental task in recommender systems, which aims for efficient and high-recall retrieval from a large item corpus. MatchBox provides an open source library for candidate item matching. It is built with stunning features in configurability, tunability, and reproducibility. 
 
-| Publication |    Model   |  Paper                                                                                       |
-| :----:|:----------:|:--------------------------------------------------------------------------------------------|
-| UAI'09 |   MF-BPR   |      [BPR: Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf)                         |
-| RecSys'16 | YoutubeDNN |    [Deep Neural Networks for YouTube Recommendations](https://dl.acm.org/doi/10.1145/2959100.2959190)                               |
-| CIKM'21 |    MF-CCL/SimpleX    |    SimpleX: A Simple and Strong Baseline for Collaborative Filtering  |
 
+## Model Zoo
+
+| Publication | Model          | Paper Title                                                                                                                                   |
+|:-----------:|:--------------:|:--------------------------------------------------------------------------------------------------------------------------------------------- |
+| UAI'09      | MF-BPR         | [BPR: Bayesian Personalized Ranking from Implicit Feedback](https://arxiv.org/ftp/arxiv/papers/1205/1205.2618.pdf)                            |
+| RecSys'16   | YoutubeDNN     | [Deep Neural Networks for YouTube Recommendations](https://dl.acm.org/doi/10.1145/2959100.2959190)                                            |
+| CIKM'21     | MF-CCL/SimpleX | [SimpleX: A Simple and Strong Baseline for Collaborative Filtering](https://arxiv.org/pdf/2109.12613.pdfhttps://arxiv.org/pdf/2109.12613.pdf) |
 
 ## Get Started
 
@@ -37,7 +38,6 @@ model.fit(train_gen, valid_gen, ...)
 
 # Evaluation
 model.evaluate(test_gen)
-
 ```
 
 #### Run the benchmark
@@ -48,11 +48,6 @@ For reproducing the experiment result, you can run the benchmarking script with 
 + --gpu: The gpu index used for experiment, and -1 for CPU.
 
 ```bash
-cd benchmarks
+cd benchmark
 python run_param_tuner.py --config Yelp18/SimpleX_yelp18_x0/SimpleX_yelp18_x0_tuner_config.yaml --gpu 0
-
 ```
-
-
-
-

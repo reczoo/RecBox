@@ -3,7 +3,7 @@ sys.path.append('../')
 from datetime import datetime
 import gc
 import argparse
-from deem import autotuner 
+from matchbox import autotuner 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()

@@ -41,3 +41,4 @@ corpus = pd.DataFrame(item_corpus, columns=["corpus_index", "item_id"])
 print("number of items:", len(item_corpus))
 corpus = corpus.set_index("corpus_index")
 corpus.to_csv("item_corpus.csv", index=False)
+

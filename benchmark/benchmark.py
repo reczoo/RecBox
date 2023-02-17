@@ -2,10 +2,10 @@ import os
 os.chdir(os.path.dirname(os.path.realpath(__file__)))
 import sys
 sys.path.append('../')
-from deem import datasets
+from matchbox import datasets
 from datetime import datetime
-from deem.utils import load_config, set_logger, print_to_json, print_to_list
-from deem.features import FeatureMap
+from matchbox.utils import load_config, set_logger, print_to_json, print_to_list
+from matchbox.features import FeatureMap
 import gc
 import argparse
 import logging
@@ -36,11 +36,11 @@ if __name__ == '__main__':
         config = tf.ConfigProto()
         config.gpu_options.allow_growth = True
         K.set_session(tf.Session(config=config))
-        from deem.tensorflow import models
-        from deem.tensorflow.tf_utils import seed_everything
+        from matchbox.tensorflow import models
+        from matchbox.tensorflow.tf_utils import seed_everything
     elif args['version'] == 'pytorch':
-        from deem.pytorch import models
-        from deem.pytorch.torch_utils import seed_everything
+        from matchbox.pytorch import models
+        from matchbox.pytorch.torch_utils import seed_everything
         params['gpu'] = args['gpu']
 
     set_logger(params)
