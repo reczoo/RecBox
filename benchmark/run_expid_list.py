@@ -3,7 +3,7 @@ sys.path.append('../')
 from datetime import datetime
 import gc
 import argparse
-from matchbox import autotuner 
+from matchbox import autotuner
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -18,4 +18,3 @@ if __name__ == '__main__':
 
     # generate parameter space combinations
     autotuner.grid_search(version, config_dir, gpu_list)
-

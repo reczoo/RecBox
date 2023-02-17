@@ -1,0 +1,32 @@
+Base:
+    model_root: './checkpoints/'
+    num_workers: 3
+    verbose: 1
+    patience: 3
+    save_best_only: True
+    eval_interval_epochs: 1
+    debug_mode: False
+
+MF_BPR_yelp18_m1:
+    model: MF
+    dataset_id: yelp18_m1_001
+    metrics: ['Recall(k=20)', 'Recall(k=50)', 'NDCG(k=20)', 'NDCG(k=50)', 'HitRate(k=20)', 'HitRate(k=50)']
+    optimizer: adam
+    learning_rate: 1.0e-3
+    num_negs: 50
+    regularizer: 1.e-7
+    batch_size: 1024
+    embedding_dim: 64
+    embedding_dropout: 0
+    similarity_score: dot
+    loss: PairwiseLogisticLoss
+    margin: 1
+    negative_weight: null
+    sampling_num_process: 1
+    fix_sampling_seeds: False
+    ignore_pos_items: False
+    epochs: 100
+    shuffle: True
+    seed: 2019
+    monitor: 'Recall(k=20)'
+    monitor_mode: 'max'

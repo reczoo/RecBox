@@ -6,13 +6,14 @@ import os
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from tqdm import tqdm
 
+
 def evaluate_metrics(user_embs, 
                      item_embs, 
                      train_user2items, 
                      valid_user2items, 
                      query_indexes,
                      metrics,
-                     parallel=True):
+                     parallel=False):
     logging.info("Evaluating metrics for {:d} users...".format(len(user_embs)))
     metric_callers = []
     max_topk = 0

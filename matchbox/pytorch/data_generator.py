@@ -132,7 +132,10 @@ class TrainGenerator(DataLoader):
         self.negative_sampling()
         iter = super(TrainGenerator, self).__iter__()
         while True:
-            yield next(iter) # a batch iterator
+            try:
+                yield next(iter) # a batch iterator
+            except StopIteration:
+                return
 
     def __len__(self):
         return self.num_batches
