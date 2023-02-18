@@ -1,6 +1,6 @@
 yelp18_m1_9217a019:
     data_root: ../../data/Yelp18/
-    data_format: csvm1
+    data_format: csv
     train_data: ../../data/Yelp18/yelp18_m1/train.csv
     valid_data: ../../data/Yelp18/yelp18_m1/test.csv
     item_corpus: ../../data/Yelp18/yelp18_m1/item_corpus.csv

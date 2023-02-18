@@ -203,7 +203,7 @@ class BaseModel(nn.Module):
         return epoch_loss / self._batches_per_epoch
 
     def evaluate(self, train_generator, valid_generator):
-        logging.info("--- Start evaluation ---")
+        logging.info("Start evaluation...")
         self.eval()  # set to evaluation mode
         with torch.no_grad():
             user_vecs = []

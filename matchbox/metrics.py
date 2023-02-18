@@ -3,7 +3,7 @@ import logging
 import heapq
 import itertools
 import os
-from concurrent.futures import ProcessPoolExecutor, as_completed
+import multiprocessing as mp
 from tqdm import tqdm
 
 
@@ -13,31 +13,34 @@ def evaluate_metrics(user_embs,
                      valid_user2items, 
                      query_indexes,
                      metrics,
-                     parallel=False):
-    logging.info("Evaluating metrics for {:d} users...".format(len(user_embs)))
-    metric_callers = []
+                     num_workers=1):
+    logging.info("Evaluating metrics for {} users.".format(len(user_embs)))
+    metric_funcs = []
     max_topk = 0
     for metric in metrics:
         try:
-            metric_callers.append(eval(metric))
+            metric_funcs.append(eval(metric))
             max_topk = max(max_topk, int(metric.split("k=")[-1].strip(")")))
         except:
             raise NotImplementedError('metrics={} not implemented.'.format(metric))
     
-    if parallel:
-        num_workers = 2
-        with ProcessPoolExecutor(max_workers=num_workers) as executor:
-            chunk_size = int(np.ceil(len(user_embs) / float(num_workers)))
-            tasks = []
-            for idx in range(0, len(user_embs), chunk_size):
-                chunk_user_embs = user_embs[idx: (idx + chunk_size), :]
-                chunk_query_indexes = query_indexes[idx: (idx + chunk_size)]
-                tasks.append(executor.submit(evaluate_block, chunk_user_embs, item_embs, chunk_query_indexes,
-                                             train_user2items, valid_user2items, metric_callers, max_topk))
-            results = [res for future in tqdm(as_completed(tasks), total=len(tasks)) for res in future.result()]
-    else:
-        results = evaluate_block(user_embs, item_embs, query_indexes, train_user2items, 
-                                 valid_user2items, metric_callers, max_topk)
+    chunk_size = min(1000, int(np.ceil(len(user_embs) / float(num_workers))))
+    pool = mp.Pool(processes=num_workers)
+    results = []
+    for idx in range(0, len(user_embs), chunk_size):
+        chunk_user_embs = user_embs[idx: (idx + chunk_size), :]
+        chunk_query_indexes = query_indexes[idx: (idx + chunk_size)]
+        if num_workers > 1:
+            results.append(pool.apply_async(evaluate_block, 
+                args=(chunk_user_embs, item_embs, chunk_query_indexes,
+                train_user2items, valid_user2items, metric_funcs, max_topk)))
+        else:
+            results += evaluate_block(chunk_user_embs, item_embs, chunk_query_indexes, train_user2items, 
+                                      valid_user2items, metric_funcs, max_topk)
+    if num_workers > 1:
+        pool.close()
+        pool.join()
+        results = [res.get() for res in results]
     average_result = np.average(np.array(results), axis=0).tolist()
     return_dict = dict(zip(metrics, average_result))
     logging.info('[Metrics] ' + ' - '.join('{}: {:.6f}'.format(k, v) for k, v in zip(metrics, average_result)))
@@ -45,7 +48,7 @@ def evaluate_metrics(user_embs,
 
 
 def evaluate_block(chunk_user_embs, item_embs, chunk_query_indexes, train_user2items, 
-                   valid_user2items, metric_callers, max_topk):
+                   valid_user2items, metric_funcs, max_topk):
     sim_matrix = np.dot(chunk_user_embs, item_embs.T)
     for i, query_index in enumerate(chunk_query_indexes):
         train_items = train_user2items[query_index]
@@ -55,7 +58,7 @@ def evaluate_block(chunk_user_embs, item_embs, chunk_query_indexes, train_user2i
     sorted_idxs = np.argsort(-sim_matrix, axis=1)
     topk_items_chunk = item_indexes[np.arange(sorted_idxs.shape[0])[:, None], sorted_idxs]
     true_items_chunk = [valid_user2items[query_index] for query_index in chunk_query_indexes]
-    chunk_results = [[fn(topk_items, true_items) for fn in metric_callers] \
+    chunk_results = [[fn(topk_items, true_items) for fn in metric_funcs] \
                      for topk_items, true_items in zip(topk_items_chunk, true_items_chunk)]
     return chunk_results
 
@@ -72,8 +75,8 @@ class Recall(object):
         return recall
 
 
-class NormalizedRecall(object):
-    """Recall metric normalized to max 1."""
+class nRecall(object):
+    """Recall metric normalized with max 1 at topk, like nDCG"""
     def __init__(self, k=1):
         self.topk = k
 

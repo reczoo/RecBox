@@ -56,15 +56,21 @@ model.evaluate(test_gen)
 
 #### Run the code
 
-For reproducing the experiment results, you can run the benchmarking script with the corresponding configs as follows.
+For reproducing the experiment results, you can run the benchmarking scripts with the corresponding configs as follows.
 
 + --config: The config directory where dataset config and model config are located.
 + --expid: The experiment id defined in a model config file to set a group of hyper-parameters.
 + --gpu: The gpu index used for experiment, and -1 for CPU.
 
 ```bash
+cd data/Yelp18/yelp18_m1
+python matchbox_convert_data.py
+
 cd model_zoo/SimpleX
 python run_expid.py --config ./config/SimpleX_yelp18_m1 --expid SimpleX_yelp18_m1 --gpu 0
+
+...
+
 python run_expid.py --config ./config/SimpleX_amazonbooks_m1 --expid SimpleX_amazonbooks_m1 --gpu 0
 python run_expid.py --config ./config/SimpleX_gowalla_m1 --expid SimpleX_gowalla_m1 --gpu 0
 ```

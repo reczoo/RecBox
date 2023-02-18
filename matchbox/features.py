@@ -59,12 +59,12 @@ class FeatureMap(object):
 
 
 class FeatureEncoder(object):
-    def __init__(self, 
-                 feature_cols=[], 
-                 label_col={}, 
-                 dataset_id=None, 
-                 data_root="../data/", 
-                 version="pytorch", 
+    def __init__(self,
+                 feature_cols=[],
+                 label_col={},
+                 dataset_id=None,
+                 data_root="../data/",
+                 version="pytorch",
                  **kwargs):
         logging.info("Set up feature encoder...")
         self.data_dir = os.path.join(data_root, dataset_id)
