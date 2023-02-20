@@ -1,3 +1,4 @@
+faiss-cpu
 PyYAML
 pandas
 scikit-learn

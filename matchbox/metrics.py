@@ -5,13 +5,14 @@ import itertools
 import os
 import multiprocessing as mp
 from tqdm import tqdm
+from .ann import FaissIndex
 
 
 def evaluate_metrics(user_embs, 
                      item_embs, 
                      train_user2items, 
                      valid_user2items, 
-                     query_indexes,
+                     query_indices,
                      metrics,
                      num_workers=1):
     logging.info("Evaluating metrics for {} users.".format(len(user_embs)))
@@ -24,18 +25,19 @@ def evaluate_metrics(user_embs,
         except:
             raise NotImplementedError('metrics={} not implemented.'.format(metric))
     
+    faiss_index = FaissIndex(item_embs, dim=item_embs.shape[-1])
     chunk_size = min(1000, int(np.ceil(len(user_embs) / float(num_workers))))
     pool = mp.Pool(processes=num_workers)
     results = []
     for idx in range(0, len(user_embs), chunk_size):
         chunk_user_embs = user_embs[idx: (idx + chunk_size), :]
-        chunk_query_indexes = query_indexes[idx: (idx + chunk_size)]
+        chunk_query_indices = query_indices[idx: (idx + chunk_size)]
         if num_workers > 1:
             results.append(pool.apply_async(evaluate_block, 
-                args=(chunk_user_embs, item_embs, chunk_query_indexes,
+                args=(chunk_user_embs, faiss_index, chunk_query_indices,
                 train_user2items, valid_user2items, metric_funcs, max_topk)))
         else:
-            results += evaluate_block(chunk_user_embs, item_embs, chunk_query_indexes, train_user2items, 
+            results += evaluate_block(chunk_user_embs, faiss_index, chunk_query_indices, train_user2items, 
                                       valid_user2items, metric_funcs, max_topk)
     if num_workers > 1:
         pool.close()
@@ -47,19 +49,22 @@ def evaluate_metrics(user_embs,
     return return_dict
 
 
-def evaluate_block(chunk_user_embs, item_embs, chunk_query_indexes, train_user2items, 
+def evaluate_block(user_embs, faiss_index, query_indices, train_user2items, 
                    valid_user2items, metric_funcs, max_topk):
-    sim_matrix = np.dot(chunk_user_embs, item_embs.T)
-    for i, query_index in enumerate(chunk_query_indexes):
+    # set to topk=500 here since the retrieval results may contain clicked items
+    scores, indices = faiss_index.search(user_embs, topk=500)
+    # mask out items already clicked in train data
+    mask = np.zeros((user_embs.shape[0], faiss_index.index.ntotal))
+    for i, query_index in enumerate(query_indices):
         train_items = train_user2items[query_index]
-        sim_matrix[i, train_items] = -np.inf # remove clicked items in train data
-    item_indexes = np.argpartition(-sim_matrix, max_topk)[:, 0:max_topk]
-    sim_matrix = sim_matrix[np.arange(item_indexes.shape[0])[:, None], item_indexes]
-    sorted_idxs = np.argsort(-sim_matrix, axis=1)
-    topk_items_chunk = item_indexes[np.arange(sorted_idxs.shape[0])[:, None], sorted_idxs]
-    true_items_chunk = [valid_user2items[query_index] for query_index in chunk_query_indexes]
-    chunk_results = [[fn(topk_items, true_items) for fn in metric_funcs] \
-                     for topk_items, true_items in zip(topk_items_chunk, true_items_chunk)]
+        mask[i, train_items] = 1
+    mask = np.take_along_axis(mask, indices, axis=1) # ie, mask[np.arange(len(mask))[:, None], indices]
+    scores += -1e9 * mask
+    sorted_idxs = np.argsort(-scores, axis=1)
+    topk_items = np.take_along_axis(indices, sorted_idxs, axis=1)[:, 0:max_topk] # get max_topk for metrics
+    true_items = [valid_user2items[query_index] for query_index in query_indices]
+    chunk_results = [[func(preds, labels) for func in metric_funcs] \
+                     for preds, labels in zip(topk_items, true_items)]
     return chunk_results
 
 
