@@ -1,2 +1,2 @@
 from .MF import MF
-from .biasMF import BiasMF
+from .BiasMF import BiasMF

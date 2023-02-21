@@ -1,3 +1,20 @@
+# =========================================================================
+# Copyright (C) 2020-2023. The SimpleX Authors. All rights reserved.
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+# =========================================================================
+
+
 from torch import nn
 import torch
 from matchbox.pytorch.models import BaseModel
@@ -76,9 +93,9 @@ class SimpleX(BaseModel):
     def user_tower(self, inputs):
         user_inputs = self.to_device(inputs)
         user_emb_dict = self.embedding_layer(user_inputs, feature_source="user")
-        user_id_emb = user_emb_dict[self.user_id_field]
+        uid_emb = user_emb_dict[self.user_id_field]
         user_history_emb = user_emb_dict[self.user_history_field]
-        user_vec = self.behavior_aggregation(user_id_emb, user_history_emb)
+        user_vec = self.behavior_aggregation(uid_emb, user_history_emb)
         if self.similarity_score == "cosine":
             user_vec = F.normalize(user_vec)
         if self.enable_bias: 
@@ -102,7 +119,7 @@ class BehaviorAggregator(nn.Module):
         self.aggregator = aggregator
         self.gamma = gamma
         self.W_v = nn.Linear(embedding_dim, embedding_dim, bias=False)
-        if self.aggregator in ["cross_attention", "self_attention"]:
+        if self.aggregator in ["user_attention", "self_attention"]:
             self.W_k = nn.Sequential(nn.Linear(embedding_dim, embedding_dim),
                                      nn.Tanh())
             self.dropout = nn.Dropout(dropout_rate) if dropout_rate > 0 else None
@@ -110,20 +127,20 @@ class BehaviorAggregator(nn.Module):
                 self.W_q = nn.Parameter(torch.Tensor(embedding_dim, 1))
                 nn.init.xavier_normal_(self.W_q)
 
-    def forward(self, id_emb, sequence_emb):
-        out = id_emb
+    def forward(self, uid_emb, sequence_emb):
+        out = uid_emb
         if self.aggregator == "mean":
             out = self.average_pooling(sequence_emb)
-        elif self.aggregator == "cross_attention":
-            out = self.cross_attention(id_emb, sequence_emb)
+        elif self.aggregator == "user_attention":
+            out = self.user_attention(uid_emb, sequence_emb)
         elif self.aggregator == "self_attention":
             out = self.self_attention(sequence_emb)
-        return self.gamma * id_emb + (1 - self.gamma) * out
+        return self.gamma * uid_emb + (1 - self.gamma) * out
 
-    def cross_attention(self, id_emb, sequence_emb):
+    def user_attention(self, uid_emb, sequence_emb):
         key = self.W_k(sequence_emb) # b x seq_len x attention_dim
         mask = sequence_emb.sum(dim=-1) == 0
-        attention = torch.bmm(key, id_emb.unsqueeze(-1)).squeeze(-1) # b x seq_len
+        attention = torch.bmm(key, uid_emb.unsqueeze(-1)).squeeze(-1) # b x seq_len
         attention = self.masked_softmax(attention, mask)
         if self.dropout is not None:
             attention = self.dropout(attention)
@@ -142,11 +159,11 @@ class BehaviorAggregator(nn.Module):
 
     def average_pooling(self, sequence_emb):
         mask = sequence_emb.sum(dim=-1) != 0
-        mean = sequence_emb.sum(dim=1) / (mask.float().sum(dim=-1, keepdim=True) + 1.e-12)
+        mean = sequence_emb.sum(dim=1) / (mask.float().sum(dim=-1, keepdim=True) + 1.e-9)
         return self.W_v(mean)
 
     def masked_softmax(self, X, mask):
         # use the following softmax to avoid nans when a sequence is entirely masked
         X = X.masked_fill_(mask, 0)
         e_X = torch.exp(X)
-        return e_X / (e_X.sum(dim=1, keepdim=True) + 1.e-12)
+        return e_X / (e_X.sum(dim=1, keepdim=True) + 1.e-9)
