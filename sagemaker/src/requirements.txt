@@ -1,0 +1,1 @@
+-e git+https://tokkiu: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@github.com/AIM-SE/RecBole.git#egg=recbole
