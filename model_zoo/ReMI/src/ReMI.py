@@ -25,6 +25,9 @@ class ReMI(BaseModel):
                  embedding_regularizer=None,
                  similarity_score="dot",
                  sample_weighting=False,
+                 interest_num=4,
+                 num_heads=4,
+                 add_pos=True,
                  **kwargs):
         super(ReMI, self).__init__(feature_map,
                                          model_id=model_id, 
@@ -48,6 +51,19 @@ class ReMI(BaseModel):
                                         batch_norm=batch_norm) \
                               if user_hidden_units is not None else None
         self.dropout = nn.Dropout(embedding_dropout)
+
+        self.num_heads = num_heads
+        self.interest_num = interest_num
+        self.hard_readout = True
+        self.add_pos = add_pos
+        if self.add_pos:
+            self.position_embedding = nn.Parameter(torch.Tensor(1, self.seq_len, self.hidden_size))
+        self.linear1 = nn.Sequential(
+            nn.Linear(self.hidden_size, self.hidden_size * 4, bias=False),
+            nn.Tanh()
+        )
+        self.linear2 = nn.Linear(self.hidden_size * 4, self.num_heads, bias=False)
+
         self.compile(lr=learning_rate, **kwargs)
             
     def forward(self, inputs):
@@ -67,6 +83,7 @@ class ReMI(BaseModel):
     def user_tower(self, inputs):
         user_inputs = self.to_device(inputs)
         user_embedding = self.embedding_layer(user_inputs, feature_source="user")
+        import pdb; pdb.set_trace()
         user_vec = user_embedding.flatten(start_dim=1)
         if self.user_dnn_layer is not None:
             user_vec = self.user_dnn_layer(user_vec)
