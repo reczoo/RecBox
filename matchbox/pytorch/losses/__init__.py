@@ -4,3 +4,4 @@ from .pairwise_logistic_loss import PairwiseLogisticLoss
 from .pairwise_margin_loss import PairwiseMarginLoss
 from .sigmoid_crossentropy_loss import SigmoidCrossEntropyLoss
 from .softmax_crossentropy_loss import SoftmaxCrossEntropyLoss
+from .nce_loss import NCELoss

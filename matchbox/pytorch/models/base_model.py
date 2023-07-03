@@ -63,6 +63,13 @@ class BaseModel(nn.Module):
         elif loss == "CosineContrastiveLoss":
             self.loss_fn = losses.CosineContrastiveLoss(margin=kwargs.get("margin", 0),
                                                         negative_weight=kwargs.get("negative_weight"))
+        elif loss == "NCELoss":
+            self.loss_fn = losses.NCELoss(noise=kwargs.get("noise"),
+                                          item_num=kwargs.get("item_num"),
+                                          noise_ratio=kwargs.get("noise_ratio"),
+                                          beta=kwargs.get("beta"),
+                                          norm_term=kwargs.get("norm_term"),
+                                          device=self.device)
         else:
             raise NotImplementedError("loss={} is not supported.".format(loss))
         self.apply(self.init_weights)
