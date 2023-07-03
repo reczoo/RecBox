@@ -18,9 +18,8 @@
 from torch import nn
 import torch
 from matchbox.pytorch.models import BaseModel
-from matchbox.pytorch.layers import EmbeddingDictLayer, EmbeddingLayer
+from matchbox.pytorch.layers import EmbeddingDictLayer
 import torch.nn.functional as F
-import numpy as np
 import math
 
 BACKOFF_PROB = 1e-10
