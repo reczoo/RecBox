@@ -42,7 +42,7 @@ class ReMI(BaseModel):
                  embedding_regularizer=None,
                  similarity_score="dot",
                  interest_num=4,
-                 beta=0,
+                 beta=10,
                  reg_ratio=0.1,
                  nce_ratio=0.1,
                  **kwargs):
@@ -86,6 +86,7 @@ class ReMI(BaseModel):
         label_emb = label_emb_dict[self.item_id_field]
         user_vecs, readout, atten = self.user_tower(user_dict, label_emb)
         item_vecs = self.item_tower(item_dict)
+        item_corpus = self.embedding_layer.embedding_layers[self.item_id_field].weight
         if self.training:
             y_pred = torch.bmm(item_vecs.view(user_vecs.size(0), self.num_negs + 1, -1),
                                readout.unsqueeze(-1)).squeeze(-1)
@@ -95,7 +96,7 @@ class ReMI(BaseModel):
 
         loss = self.get_total_loss(y_pred, labels)
         loss += self.reg_ratio * self.attention_reg_loss(atten)
-        loss += self.nce_ratio * self.nce_sample_loss(label_ids.unsqueeze(-1), readout, self.embedding_layer.embedding_layers[self.item_id_field].weight)
+        loss += self.nce_ratio * self.nce_sample_loss(label_ids.unsqueeze(-1), readout, item_corpus)
         return_dict = {"loss": loss, "y_pred": y_pred}
         return return_dict
 
