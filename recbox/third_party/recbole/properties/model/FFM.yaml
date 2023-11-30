@@ -1,0 +1,2 @@
+embedding_size: 10              # (int) The embedding size of features. 
+fields: ~                       # (dict or None) key: field's id, value: features in this field.
