@@ -15,7 +15,7 @@
 # =========================================================================
 
 
-from fuxictr.tensorflow.tf_utils import get_initializer, get_regularizer
+from recbox.utils.tf_utils import get_initializer, get_regularizer
 from tensorflow.keras.layers import Layer, Dense
 
 

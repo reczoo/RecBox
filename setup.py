@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fd:
 
 setuptools.setup(
     name="recbox",
-    version="0.0.4",
+    version="0.0.5rc",
     author="RECZOO",
     author_email="reczoo@users.noreply.github.com",
     description="A box of core libraries for recommendation model development",

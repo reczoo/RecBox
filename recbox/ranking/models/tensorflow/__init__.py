@@ -1,0 +1,1 @@
+from .rank_model import RankingModel

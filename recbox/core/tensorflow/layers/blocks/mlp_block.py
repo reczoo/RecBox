@@ -16,13 +16,12 @@
 
 
 import tensorflow as tf
-from fuxictr.tensorflow.tf_utils import get_activation, get_initializer, get_regularizer
+from recbox.utils.tf_utils import get_activation, get_initializer, get_regularizer
 from tensorflow.keras.layers import Layer, Dense, BatchNormalization, LayerNormalization, Dropout
 
 
 class MLP_Block(Layer):
     def __init__(self, 
-                 input_dim, 
                  hidden_units=[], 
                  hidden_activations="ReLU",
                  output_dim=None,
@@ -41,24 +40,23 @@ class MLP_Block(Layer):
         if not isinstance(hidden_activations, list):
             hidden_activations = [hidden_activations] * len(hidden_units)
         hidden_activations = [get_activation(x) for x in hidden_activations]
-        hidden_units = [input_dim] + hidden_units
-        for idx in range(len(hidden_units) - 1):
-            self.mlp.add(Dense(hidden_units[idx + 1], use_bias=use_bias, 
+        for idx in range(len(hidden_units)):
+            self.mlp.add(Dense(hidden_units[idx], use_bias=use_bias, 
                                kernel_initializer=get_initializer(initializer), 
                                kernel_regularizer=get_regularizer(regularizer),
                                bias_regularizer=get_regularizer(regularizer)))
             if norm_before_activation:
                 if batch_norm:
-                    self.mlp.add(BatchNormalization(hidden_units[idx + 1]))
+                    self.mlp.add(BatchNormalization(hidden_units[idx]))
                 elif layer_norm:
-                    self.mlp.add(LayerNormalization(hidden_units[idx + 1]))
+                    self.mlp.add(LayerNormalization(hidden_units[idx]))
             if hidden_activations[idx]:
                 self.mlp.add(hidden_activations[idx])
             if not norm_before_activation:
                 if batch_norm:
-                    self.mlp.add(BatchNormalization(hidden_units[idx + 1]))
+                    self.mlp.add(BatchNormalization(hidden_units[idx]))
                 elif layer_norm:
-                    self.mlp.add(LayerNormalization(hidden_units[idx + 1]))
+                    self.mlp.add(LayerNormalization(hidden_units[idx]))
             if dropout_rates[idx] > 0:
                 self.mlp.add(Dropout(p=dropout_rates[idx]))
         if output_dim is not None:

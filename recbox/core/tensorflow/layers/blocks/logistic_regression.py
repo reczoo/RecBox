@@ -17,7 +17,7 @@
 
 import tensorflow as tf
 from tensorflow.keras.layers import Layer
-from fuxictr.tensorflow.layers import FeatureEmbedding
+from recbox.core.tensorflow.layers import FeatureEmbedding
 
 
 class LogisticRegression(Layer):

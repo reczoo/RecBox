@@ -15,14 +15,13 @@
 # =========================================================================
 
 import tensorflow as tf
-from tensorflow.keras import Model
+from tensorflow.keras.layers import Layer
 
 
-class MaskedSumPooling(Model):
+class MaskedSumPooling(Layer):
     def __init__(self):
         super(MaskedSumPooling, self).__init__()
 
-    def forward(self, embedding_matrix):
+    def call(self, embedding_matrix, training=None):
         return tf.reduce_sum(embedding_matrix, axis=1)
-
 

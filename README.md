@@ -1,2 +1,3 @@
 # RecBox
-A box of core libraries for recommendation tasks
+
+RecBox provides a box of core libraries for recommendation tasks. 
